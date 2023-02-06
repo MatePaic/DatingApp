@@ -33,19 +33,6 @@ export class MemberDetailComponent implements OnInit{
     ];
   }
 
-  private _getImages() {
-    if (!this.member) return [];
-    const imageUrls = [];
-    for (const photo of this.member.photos) {
-      imageUrls.push({
-        small: photo.url,
-        medium: photo.url,
-        big: photo.url
-      })
-    }
-    return imageUrls;
-  }
-
   private _loadMember() {
     const username = this.route.snapshot.paramMap.get('username');
     if(!username) return;
@@ -55,5 +42,18 @@ export class MemberDetailComponent implements OnInit{
         this.galleryImages = this._getImages();
       } 
     });
+  }
+
+  private _getImages() {
+    if (!this.member) return [];
+    const imageUrls = [];
+    for (const photo of this.member.photos) {
+      imageUrls.push({
+        small: photo.url,
+        medium: photo.url,
+        big: photo.url
+      });
+    }
+    return imageUrls;
   }
 }
