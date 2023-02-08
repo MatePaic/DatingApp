@@ -18,17 +18,17 @@ namespace API.Data
             this._mapper = mapper;
         }
 
-        public async Task<IEnumerable<AppUser>> GetUsersAsync()
-        {
-            return await _context.Users
-                .Include(p => p.Photos)
-                .ToListAsync();
-        }
+        //public async Task<IEnumerable<AppUser>> GetUsersAsync()
+        //{
+        //    return await _context.Users
+        //        .Include(p => p.Photos)
+        //        .ToListAsync();
+        //}
 
-        public async Task<AppUser> GetByIdAsync(int id)
-        {
-            return await _context.Users.FindAsync(id);
-        }
+        //public async Task<AppUser> GetByIdAsync(int id)
+        //{
+        //    return await _context.Users.FindAsync(id);
+        //}
 
         public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
