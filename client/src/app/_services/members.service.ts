@@ -32,15 +32,15 @@ export class MembersService {
     });
   }
 
-  getUserParams() {
+  public getUserParams() {
     return this.userParams;
   }
 
-  setUserParams(params: UserParams) {
+  public setUserParams(params: UserParams) {
     this.userParams = params;
   }
 
-  resetUserParams() {
+  public resetUserParams() {
     if (this.user) {
       this.userParams = new UserParams(this.user);
       return this.userParams;
@@ -48,7 +48,7 @@ export class MembersService {
     return;
   }
 
-  getMembers(userParams: UserParams) {
+  public getMembers(userParams: UserParams) {
     const response = this.memberCache.get(Object.values(userParams).join('-'));
 
     if (response) return of(response);
@@ -93,6 +93,18 @@ export class MembersService {
 
   public deletePhoto(photoId: number) {
     return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
+  }
+
+  public addLike(username: string) {
+    return this.http.post(this.baseUrl + 'likes/' + username, {});
+  }
+
+  public getLikes(predicate: string, pageNumber: number, pageSize: number) {
+    let params = this._getPaginationHeaders(pageNumber, pageSize);
+
+    params = params.append('predicate', predicate);
+
+    return this._getPaginatedResult<IMember[]>(this.baseUrl + 'likes', params);
   }
 
   private _getPaginatedResult<T>(url: string, params: HttpParams) {
