@@ -1,11 +1,11 @@
-export interface Pagination {
+export interface IPagination {
     currentPage: number;
     itemsPerPage: number;
     totalItems: number;
     totalPages: number;
 }
 
-export class PaginationResult<T> {
+export class PaginatedResult<T> {
     result?: T;
-    pagination?: Pagination;
+    pagination?: IPagination;
 }

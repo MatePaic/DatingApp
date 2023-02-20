@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, BehaviorSubject  } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IUser } from '../models/user';
+import { IUser } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,22 +18,22 @@ export class AccountService {
     return this.http.post<IUser>(this.baseUrl + 'account/login', model).pipe(
       map((response: IUser) => {
         const user = response;
-        if(user) {
+        if (user) {
           this.setCurrentUser(user);
         }
       })
-    );
+    )
   }
 
   register(model: any) {
     return this.http.post<IUser>(this.baseUrl + 'account/register', model).pipe(
       map(user => {
-        if(user) {
+        if (user) {
           this.setCurrentUser(user);
         }
       })
-    );
-  }
+    )
+  } 
 
   setCurrentUser(user: IUser) {
     localStorage.setItem('user', JSON.stringify(user));

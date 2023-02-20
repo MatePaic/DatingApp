@@ -6,11 +6,11 @@
   }
   
   .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
-    border-bottom: 4px solid #b1cee7;
+    border-bottom: 4px solid #fbcdcf;
   }
   
   .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
-    border: 0;
+    border: 0 !important;
     background: none !important;
     color: #333333;
   }
@@ -24,7 +24,7 @@
   }
   
   .member-tabset > .nav-tabs > li.active {
-    border-bottom: 4px solid #3399f3;
+    border-bottom: 4px solid #E95420;
     position: relative;
   }
   
@@ -45,3 +45,6 @@
     padding: 15px 0;
   }
   
+  .nav-tabs {
+      --bs-nav-tabs-border-width: 0px;
+  }

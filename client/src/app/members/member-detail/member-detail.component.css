@@ -1,6 +1,6 @@
 .img-thumbnail {
     margin: 25px;
-    width: 86%;
+    width: 85%;
     height: 85%;
 }
 
@@ -14,7 +14,4 @@
     border-top: none;
 }
 
-.ngx-gallery{
-    display: inline-block;
-    margin-bottom: 20px;
-}
+.ngx-gallery { display: inline-block; margin-bottom: 20px; }
