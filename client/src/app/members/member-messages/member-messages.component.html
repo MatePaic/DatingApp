@@ -5,6 +5,8 @@
         </div>
 
         <ul 
+            #scrollMe
+            style="overflow: scroll; height: 500px;"
             *ngIf="(messageService.messageThread$ | async)!.length > 0" class="chat">
             <li *ngFor="let message of (messageService.messageThread$ | async)">
                 <div>
